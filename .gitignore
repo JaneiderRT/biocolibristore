@@ -32,7 +32,7 @@ downloads/
 eggs/
 .eggs/
 lib/
-!static/lib/*
+!static/
 lib64/
 parts/
 sdist/
