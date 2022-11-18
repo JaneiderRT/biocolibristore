@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 
@@ -18,13 +17,13 @@ def index(request):
 
 def singin(request):
     if request.method == 'GET':
-        return render(request, 'singin.html', {'form_login':AuthenticationForm})
+        return render(request, 'singin.html')
     else:
         username = request.POST['username']
         password = request.POST['password']
         user     = authenticate(request, username=username, password=password)
         if user is None:
-            return render(request, 'singin.html', {'form_login':AuthenticationForm, 'error':'¡Ups! Revisa tus credenciales.'})
+            return render(request, 'singin.html', {'error':'¡Ups! Revisa tus credenciales.'})
         else:
             login(request, user)
             return redirect('index')
