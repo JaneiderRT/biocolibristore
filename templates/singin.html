@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/singin.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container singin-container">
+    <form class="form-singin shadow" method="post">
+        {% csrf_token %}
+        <h1>Iniciar Sesión</h1>
+        <p class="singin-message">{{  error }}</p>
+        <div>
+            <label for="id_username" class="form-label">Nombre de usuario</label>
+            <input type="text" name="username" maxlength="150" class="form-control" autofocus required id="id_username">
+        </div>
+        <div>
+            <label for="id_password" class="form-label">Contraseña</label>
+            <input type="password" name="password" class="form-control" required id="id_password">
+        </div>
+        <a class="link-form" href="/singup/">Crear una cuenta</a>
+        <div class="d-grid gap-2">
+            <button class="btn">Login</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

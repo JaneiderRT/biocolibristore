@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/singup.css' %}">
+{% endblock %}
+{% block content %}
+<section class="section-singup">
+    <div class="container-fluid">
+        <form class="form-singup shadow" method="post">
+            {% csrf_token %}
+            <!--<img src="{% static '' %}">-->
+            <h1>Crear Cuenta</h1>
+            <p class="singup-message">{{error}}</p>
+            <div>
+                <label for="id_username" class="form-label">Nombre de usuario</label>
+                <input type="text" name="username" maxlength="150" class="form-control" autofocus required
+                    id="id_username" aria-describedby="emailHelp">
+                <div id="emailHelp" class="text-help form-text">Requerido. 150 carácteres como máximo. Únicamente letras,
+                    dígitos y @/./+/-/_</div>
+            </div>
+            <div>
+                <label for="id_password1" class="form-label">Contraseña</label>
+                <input type="password" name="password1" class="form-control" required id="id_password1">
+            </div>
+            <div>
+                <label for="id_password2" class="form-label">Contraseña (Confirmación)</label>
+                <input type="password" name="password2" class="form-control" required id="id_password2"
+                    aria-describedby="pass2Help">
+                <div id="pass2Help" class="text-help form-text">Para verificar, ingrese la misma contraseña anterior.</div>
+            </div>
+            <a class="link-form" href="/singin/">Ya tengo una cuenta</a>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn">Crear</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

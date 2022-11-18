@@ -1,0 +1,91 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<!--Seccion Banner-->
+<section class="hero-banner py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 offset-lg-1 order-lg-1 izq-columna">
+                <img src="{% static 'img/producto_banner.png' %}" class="img-fluid" alt="Imagen Producto">
+            </div>
+            <div class="col-lg-6 der-columna">
+                <h1 class="mt-3">AL POR MAYOR</h1>
+                <p class="lead text-secondary mt-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis feugiat massa. Vestibulum
+                    faucibus felis id
+                    efficitur volutpat. Mauris tempor massa at odio ornare fermentum. Maecenas nec dui nec libero tempus
+                    pellentesque.
+                    Nunc vitae bibendum ipsum. Sed sollicitudin quis erat ac mollis. Mauris in convallis orci. Quisque
+                    auctor nunc nec
+                    consectetur consectetur. Praesent id mattis sem. Mauris eget ullamcorper lacus. Aenean blandit
+                    semper aliquet. Mauris
+                    quis lorem at orci consectetur scelerisque. Cras iaculis magna sem, a varius est tempor at. Mauris
+                    elementum at sem et
+                    ornare.
+                    <br><br>
+
+                    Nunc vel tempus magna, id congue nunc. Pellentesque et dapibus mauris, eget viverra orci.
+                    Suspendisse sollicitudin
+                    et urna ut tempor. Nunc feugiat vehicula lacus sed ultrices. Suspendisse suscipit, urna ac fringilla
+                    congue, mauris
+                    turpis vulputate mi, sit amet pretium tellus massa a justo. Duis nec risus vel purus scelerisque
+                    consequat sed quis
+                    magna. Sed arcu est, aliquet ac blandit a, posuere id arcu. Phasellus ut ultrices turpis, a vehicula
+                    metus. Proin
+                    eget turpis lacinia, elementum ligula elementum, facilisis sapien. Vestibulum mi neque...
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Seccion Productos-->
+<section class="products" id="Products">
+    <div class="container border-top">
+        <h1 class="my-5">Productos</h1>
+        <!--Poner filtros y campo de busqueda-->
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-4">
+            {% for producto in paginacion %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{producto.imagen.url}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{producto.nombre}}</h5>
+                        <p class="card-text">
+                            {{producto.id_categoria}}
+                            <br>
+                            ${{producto.precio}}
+                        </p>
+                        <a class="btn" href="#">
+                            <i class="bi bi-bag-plus"></i>
+                        </a>
+                        <a class="btn" href="#">
+                            <i class="bi bi-eye"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!--pagination-->
+        <nav class="products-pagination">
+            <ul class="pagination">
+                {% if paginacion.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ paginacion.previous_page_number }}#Products">Anterior</a></li>
+                {% endif %}
+
+                <li class="page-item">
+                    <a class="page-link">
+                        Pagina {{ paginacion.number }} de {{ paginacion.paginator.num_pages }}
+                    </a>
+                </li>
+
+                {% if paginacion.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ paginacion.next_page_number }}#Products">Siguiente</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</section>
+{% endblock %}

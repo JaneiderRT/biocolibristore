@@ -1,0 +1,233 @@
+/*--------------------------------------------*/
+/*          Declaracion de fuentes            */
+/*--------------------------------------------*/
+@font-face {
+    font-family: Arial_Rounded_Bold;
+    src: url('../fonts/Arial_Rounded_Bold/ARLRDBD.TTF');
+}
+
+@font-face {
+    font-family: Knewave;
+    src: url('../fonts/Knewave/Knewave-Regular.ttf');
+}
+
+@font-face {
+    font-family: Fredoka_One;
+    src: url('../fonts/Fredoka_One/FredokaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: Kalam_Bold;
+    src: url('../fonts/Kalam/Kalam-Bold.ttf');
+}
+
+@font-face {
+    font-family: Kalam;
+    src: url('../fonts/Kalam/Kalam-Regular.ttf');
+}
+
+@font-face {
+    font-family: Kalam_light;
+    src: url('../fonts/Kalam/Kalam-Light.ttf');
+}
+
+/*--------------------------------------------*/
+/*                Inicio de CSS               */
+/*--------------------------------------------*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+}
+
+body,
+html {
+    height: 100%;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+.link-form {
+    font-family: Fredoka_One;
+    font-size: 17px;
+    letter-spacing: 0em;
+    text-decoration: none;
+}
+
+/*--------------------------------------------*/
+/*              Barra Navegacion              */
+/*--------------------------------------------*/
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar-toggler {
+    border-radius: 30%;
+    background-color: #ffffff;
+    border-color: #353535;
+}
+
+.navbar-toggler i {
+    color: black;
+}
+
+.logo {
+    width: 60px;
+    height: 70px;
+}
+
+.navbar-nav li {
+    font-family: Kalam_Bold;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 19px;
+    letter-spacing: 0em;
+    margin-left: 10px;
+}
+
+.navbar-nav li a:hover {
+    color: #82BE58; /*a5be00*/
+    cursor: pointer;
+}
+
+.navbar-nav li a i {
+    font-size: 23px;
+}
+
+/*--------------------------------------------*/
+/*                   Banner                   */
+/*--------------------------------------------*/
+.hero-banner {
+    background-color: #ffffff;
+}
+
+.hero-banner .der-columna h1 {
+    font-family: Arial_Rounded_Bold;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #0c8E4E; /*679436*/
+}
+
+.hero-banner .der-columna p {
+    font-family: Kalam_light;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.hero-banner .izq-columna img {
+    border-radius: 25px;
+}
+
+/*--------------------------------------------*/
+/*                  Productos                 */
+/*--------------------------------------------*/
+.products h1 {
+    font-family: Arial_Rounded_Bold;
+    font-size: 45px;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #0c8E4E; /*679436*/
+}
+
+.card img {
+    width: 335px;
+    height: 250px;
+    margin: auto;
+    padding: 10px 10px;
+}
+
+.card-title {
+    font-family: Fredoka_One;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 10px;
+    letter-spacing: 0em;
+}
+
+.card-text {
+    font-family: Kalam_light;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.card-body .btn {
+    font-family: Fredoka_One;
+    font-size: 15px;
+    letter-spacing: 0em;
+    color: #f8f9fa;
+    background-color: #0c8E4E; /*679436*/
+}
+
+.card-body .btn:hover {
+    background-color: #82BE58;
+}
+
+.products .products-pagination {
+    margin-top: 15px;
+}
+
+.products .products-pagination li a {
+    font-family: Fredoka_One; /*Arial_Rounded_Bold, Knewave, Fredoka_One, Kalam_Bold, Kalam, Kalam_light*/
+    font-size: 16px;
+    color: #999999;
+}
+
+.products .products-pagination li a:hover {
+    color: #0c8E4E; /*a5be00*/
+}
+
+/*--------------------------------------------*/
+/*                Pie De Pagina               */
+/*--------------------------------------------*/
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .img-span {
+    display: flex;
+    align-items: center;
+}
+
+footer img {
+    margin-right: 15px;
+}
+
+footer .img-span span {
+    font-family: Fredoka_One;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    color: #999999;
+}
+
+footer ul {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+}
+
+footer ul .icons {
+    color: #999999;
+}
+
+footer ul .icons i {
+    font-size: 20px;
+}
+
+footer ul .icons i:hover {
+    color: #0c8E4E;
+}

@@ -1,0 +1,55 @@
+/*--------------------------------------------*/
+/*                 Formulario                 */
+/*--------------------------------------------*/
+.singin-container {
+    padding: 35px 45px;
+}
+
+.form-singin {
+    border-radius: 15px;
+    padding: 25px;
+    background-color: white;
+}
+
+.form-singin h1 {
+    font-family: Arial_Rounded_Bold;
+    font-size: 45px;
+    line-height: 48px;
+    letter-spacing: 0em;
+    color: #0C8E4E;
+}
+
+.singin-message {
+    font-family: Fredoka_One;
+    font-size: 15px;
+    letter-spacing: 0em;
+    color: red;
+}
+
+.form-singin div {
+    margin: 15px 0px;
+}
+
+.form-singin div label {
+    font-family: Arial_Rounded_Bold; /*Arial_Rounded_Bold, Knewave, Fredoka_One, Kalam_Bold, Kalam, Kalam_light*/
+    font-size: 15px;
+    letter-spacing: 0em;
+}
+
+.form-singin div input {
+    font-family: Kalam;
+    font-size: 18px;
+    letter-spacing: 0em;
+}
+
+.form-singin div button {
+    font-family: Fredoka_One;
+    font-size: 16px;
+    background-color: #0C8E4E;
+    color: white;
+}
+
+.form-singin div button:hover {
+    color: white;
+    background-color: #82BE58;
+}
