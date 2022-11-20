@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+{% block content %}
+<section class="container">
+    <div class="marco shadow">
+        <h1>Contactanos</h1>
+
+        <hr class="line">
+
+        <p>¡Bienvenido!, diligencia el formulario y envíanos tus dudas o comentarios. ¡Estamos muy atentos!</p>
+
+        <p class="contact-message">{{mensaje}}</p>
+        <p class="contact-error">{{error}}</p>
+
+        <!--Formulario De Contacto-->
+        <form class="row g-3 form" method="post">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label for="inputNombres" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="inputNombres" required name="inputNombres">
+            </div>
+            <div class="col-md-6">
+                <label for="inputApellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="inputApellidos" required name="inputApellidos">
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmailFrom" class="form-label">Correo Electrónico (remitente)</label>
+                <input type="email" class="form-control" id="inputEmailFrom" required name="inputEmailFrom">
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmailTo" class="form-label">Correo Electrónico (destinatario)</label>
+                <input type="email" class="form-control" id="inputEmailTo" required name="inputEmailTo">
+            </div>
+            <div class="col-md-12">
+                <label for="inputMessage" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="inputMessage" required name="inputMessage" rows="2"></textarea>
+            </div>
+            <div class="row col-12 d-grid gap-2 buttons">
+                <button type="submit" class="btn" value="Enviar">Enviar</button>
+                <a href="/" class="btn">Volver</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

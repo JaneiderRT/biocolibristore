@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+#from decouple import config
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -133,3 +134,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Settings of variables for sending mails
+# smtp.office365.com
+EMAIL_HOST          = 'smtp.gmail.com'
+EMAIL_PORT          = 587
+EMAIL_HOST_USER     = ''
+EMAIL_HOST_PASSWORD = 'oezycjigutxcjdox'#config('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS       = True
+#DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER

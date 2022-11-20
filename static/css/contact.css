@@ -1,0 +1,74 @@
+/*--------------------------------------------*/
+/*              Formulario Contact            */
+/*--------------------------------------------*/
+.marco {
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 30px;
+}
+
+.marco h1 {
+    font-family: Arial_Rounded_Bold;
+    font-size: 45px;
+    letter-spacing: 0em;
+    color: #0C8E4E;
+}
+
+.line {
+    max-width: 100%;
+    border: 0.5px solid #0C8E4E;
+    opacity: 0.3;
+}
+
+.marco p {
+    font-family: Kalam;
+    font-size: 17px;
+    letter-spacing: 0em;
+}
+
+.contact-message {
+    font-family: Fredoka_One;
+    font-size: 15px;
+    letter-spacing: 0em;
+    color: #82BE58;
+}
+
+.contact-error {
+    font-family: Fredoka_One;
+    font-size: 15px;
+    letter-spacing: 0em;
+    color: red;
+}
+
+.form div label {
+    font-family: Arial_Rounded_Bold;
+    font-size: 18px;
+    letter-spacing: 0em;
+}
+
+.form .buttons {
+    margin: 15px 0px;
+}
+
+.form .buttons button {
+    font-family: Fredoka_One;
+    letter-spacing: 1px;
+    background-color: #0C8E4E;
+    color: #ffffff;
+}
+
+.form .buttons button:hover {
+    background-color: #82BE58;
+}
+
+.form .buttons a {
+    font-family: Fredoka_One;
+    letter-spacing: 1px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.form .buttons a:hover {
+    background-color: #999999;
+}
