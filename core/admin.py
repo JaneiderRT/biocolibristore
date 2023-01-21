@@ -3,7 +3,7 @@ from django.contrib import admin
 from . import models
 
 # Register your models here.
-#Modelos que va a poder topar el administrador.
+# Modelos que va a poder topar el administrador.
 admin.site.register(models.Metodos_Pago)
 admin.site.register(models.Porcentajes)
 admin.site.register(models.Ref_Tipo_Documento)
@@ -14,7 +14,7 @@ admin.site.register(models.Asosciado)
 admin.site.register(models.Producto)
 admin.site.register(models.Orden_Compra)
 
-#Modelos que no va a poder topar el administrador.
+# Modelos que no va a poder topar el administrador.
 admin.site.register(models.Administrador)
 admin.site.register(models.Detalle_Orden)
 admin.site.register(models.Pago)

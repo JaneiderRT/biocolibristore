@@ -10,8 +10,8 @@ from .models import Producto
 
 # Create your views here.
 def index(request):
-    productos = Producto.objects.all()
-    paginator = Paginator(productos, 6)
+    productos  = Producto.objects.all()
+    paginator  = Paginator(productos, 6)
     num_pagina = request.GET.get('page')
     paginacion = paginator.get_page(num_pagina)
     return render(request, 'index.html', {'productos':productos, 'paginacion':paginacion})
