@@ -1,5 +1,7 @@
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from django.core.mail import EmailMessage
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
@@ -8,8 +10,8 @@ from .models import Producto
 
 # Create your views here.
 def index(request):
-    productos = Producto.objects.all()
-    paginator = Paginator(productos, 6)
+    productos  = Producto.objects.all()
+    paginator  = Paginator(productos, 6)
     num_pagina = request.GET.get('page')
     paginacion = paginator.get_page(num_pagina)
     return render(request, 'index.html', {'productos':productos, 'paginacion':paginacion})
@@ -51,3 +53,28 @@ def singup(request):
 def singout(request):
     logout(request)
     return redirect('index')
+
+
+def contact(request):
+    if request.method == 'GET':
+        return render(request, 'contact.html')
+    else:
+        nombres                  = request.POST['inputNombres']
+        apellidos                = request.POST['inputApellidos']
+        settings.EMAIL_HOST_USER = request.POST['inputEmailFrom']
+        email_to                 = request.POST['inputEmailTo']
+        mensaje                  = request.POST['inputMessage']
+        correo                   = EmailMessage(
+            subject='BIOCOLIBRISTORE - {} {}'.format(nombres, apellidos),
+            body=mensaje,
+            from_email=settings.EMAIL_HOST_USER,
+            to=[email_to],
+        )
+        try:
+            envio = correo.send(fail_silently=False)
+            if envio == 0:
+                return render(request, 'contact.html', {'error':'¡Ups! No se puedo enviar el correo.'})
+            else:
+                return render(request, 'contact.html', {'mensaje':'¡el mensaje se ha enviado satisfactoriamente!'})
+        except Exception as err:
+            return render(request, 'contact.html', {'error':f'Ha ocurrido un error inseperado: {str(err)}'})

@@ -8,7 +8,7 @@ class Metodos_Pago(models.Model):
     def __str__(self):
         return self.descripcion
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Metodos De Pago'
 
 
@@ -19,9 +19,9 @@ class Porcentajes(models.Model):
     valor         = models.PositiveIntegerField()
 
     def __str__(self):
-        return f'Procentaje De {self.titulo} - {self.valor} %'
+        return f'Porcentaje De {self.titulo} - {self.valor} %'
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Porcentajes'
 
 
@@ -33,7 +33,7 @@ class Ref_Tipo_Documento(models.Model):
     def __str__(self):
         return self.descripcion
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Tipo De Documentos'
 
 
@@ -45,7 +45,7 @@ class Ref_Tipo_Persona(models.Model):
     def __str__(self):
         return self.descripcion
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Tipo De Personas'
 
 
@@ -63,7 +63,7 @@ class Administrador(models.Model):
     def __str__(self):
         return f'{self.nombres} {self.apellidos}'
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Administrador'
 
 
@@ -103,7 +103,7 @@ class Categoria_Producto(models.Model):
     def __str__(self):
         return self.descripcion
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Categoria De Productos'
 
 
@@ -120,7 +120,7 @@ class Producto(models.Model):
     def __str__(self):
         return f'{self.nombre} - {self.id_categoria}'
 
-    class Meta():
+    class Meta:
         ordering = ['cod_producto']
 
 
@@ -136,7 +136,7 @@ class Detalle_Orden(models.Model):
     def __str__(self):
         return f'{self.cod_orden} | {self.fecha_orden} - {self.dni_cliente}'
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Detalles De Orden'
 
 
@@ -160,7 +160,7 @@ class Orden_Compra(models.Model):
     def __str__(self):
         return f'Pago: {self.id_pago} - {self.dni_cliente}'
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Ordenes De Compra'
 
 
@@ -175,7 +175,7 @@ class Historial_Inversiones(models.Model):
     def __str__(self):
         return f'{self.cod_inversion} - {self.dni_cliente}'
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Historial De Inversiones'
 
 
@@ -190,5 +190,21 @@ class Historia_Ganancias(models.Model):
     def __str__(self):
         return f'{self.cod_ganancias} | {self.dni_cliente}'
 
-    class Meta():
+    class Meta:
         verbose_name_plural = 'Historial De Ganancias'
+
+
+class Contacto(models.Model):
+    cod_mensaje      = models.IntegerField(auto_created=True, primary_key=True)
+    dni_cliente      = models.IntegerField()
+    nombre_cliente   = models.CharField(max_length=30)
+    apellido_cliente = models.CharField(max_length=30)
+    email_receptor   = models.CharField(max_length=100)
+    mensaje          = models.TextField(max_length=800)
+    fecha_creacion   = models.DateField(auto_now_add=True, verbose_name='Fecha Creacion Mensaje')
+
+    def __str__(self):
+        return f'Mensaje #{self.cod_mensaje} | {self.nombre_cliente}  {self.apellido_cliente}'
+
+    class Meta:
+        verbose_name_plural = 'Contacto'
