@@ -56,25 +56,27 @@ def singout(request):
 
 
 def contact(request):
+    """
+    SE DEBE REGISTRAR EN BDD EL CONTACTO Y ADICIONAR LOS CAMPOS AL FORMULARIO EN EL FRONT
+    """
     if request.method == 'GET':
         return render(request, 'contact.html')
     else:
         nombres                  = request.POST['inputNombres']
         apellidos                = request.POST['inputApellidos']
-        settings.EMAIL_HOST_USER = request.POST['inputEmailFrom']
-        email_to                 = request.POST['inputEmailTo']
+        email_client             = request.POST['inputEmailFrom']
         mensaje                  = request.POST['inputMessage']
         correo                   = EmailMessage(
-            subject='BIOCOLIBRISTORE - {} {}'.format(nombres, apellidos),
+            subject='BIOCOLIBRISTORE - {} {} -> Lo envío: {}'.format(nombres, apellidos, email_client),
             body=mensaje,
             from_email=settings.EMAIL_HOST_USER,
-            to=[email_to],
+            to=[settings.ADMIN_EMAIL],
         )
         try:
             envio = correo.send(fail_silently=False)
             if envio == 0:
                 return render(request, 'contact.html', {'error':'¡Ups! No se puedo enviar el correo.'})
             else:
-                return render(request, 'contact.html', {'mensaje':'¡el mensaje se ha enviado satisfactoriamente!'})
+                return render(request, 'contact.html', {'mensaje':'¡El mensaje se ha enviado satisfactoriamente!'})
         except Exception as err:
             return render(request, 'contact.html', {'error':f'Ha ocurrido un error inseperado: {str(err)}'})

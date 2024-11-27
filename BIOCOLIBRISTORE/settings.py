@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-#from decouple import config
 import os
+from dotenv import load_dotenv, dotenv_values
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -137,9 +137,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Settings of variables for sending mails
 # smtp.office365.com
+
+load_dotenv()
+config = dotenv_values('.env')
+
+EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST          = 'smtp.gmail.com'
 EMAIL_PORT          = 587
-EMAIL_HOST_USER     = ''
-EMAIL_HOST_PASSWORD = 'oezycjigutxcjdox'#config('USER_MAIL_PASSWORD')
+EMAIL_HOST_USER     = config.get('APP_EMAIL')
+EMAIL_HOST_PASSWORD = config.get('PASSWORD_EMAIL')
+ADMIN_EMAIL         = config.get('ADMIN_EMAIL')
 EMAIL_USE_TLS       = True
-#DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER

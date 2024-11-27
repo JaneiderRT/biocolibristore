@@ -199,7 +199,7 @@ class Contacto(models.Model):
     dni_cliente      = models.IntegerField()
     nombre_cliente   = models.CharField(max_length=30)
     apellido_cliente = models.CharField(max_length=30)
-    email_receptor   = models.CharField(max_length=100)
+    email_remitente  = models.CharField(max_length=100)
     mensaje          = models.TextField(max_length=800)
     fecha_creacion   = models.DateField(auto_now_add=True, verbose_name='Fecha Creacion Mensaje')
 
