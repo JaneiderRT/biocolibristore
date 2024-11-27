@@ -196,12 +196,12 @@ class Historia_Ganancias(models.Model):
 
 class Contacto(models.Model):
     cod_mensaje      = models.IntegerField(auto_created=True, primary_key=True)
-    dni_cliente      = models.IntegerField()
     nombre_cliente   = models.CharField(max_length=30)
     apellido_cliente = models.CharField(max_length=30)
-    email_receptor   = models.CharField(max_length=100)
+    email_remitente  = models.CharField(max_length=100)
+    asunto           = models.CharField(max_length=100, default='Sin Asunto')
     mensaje          = models.TextField(max_length=800)
-    fecha_creacion   = models.DateField(auto_now_add=True, verbose_name='Fecha Creacion Mensaje')
+    fecha_creacion   = models.DateTimeField(auto_now_add=True, verbose_name='Fecha Creacion Mensaje')
 
     def __str__(self):
         return f'Mensaje #{self.cod_mensaje} | {self.nombre_cliente}  {self.apellido_cliente}'
