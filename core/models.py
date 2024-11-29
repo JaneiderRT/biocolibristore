@@ -201,7 +201,7 @@ class Contacto(models.Model):
     email_remitente  = models.CharField(max_length=100)
     asunto           = models.CharField(max_length=100, default='Sin Asunto')
     mensaje          = models.TextField(max_length=800)
-    fecha_creacion   = models.DateTimeField(auto_now_add=True, verbose_name='Fecha Creacion Mensaje')
+    fecha_creacion   = models.DateTimeField(verbose_name='Fecha Creacion Mensaje')
 
     def __str__(self):
         return f'Mensaje #{self.cod_mensaje} | {self.nombre_cliente}  {self.apellido_cliente}'

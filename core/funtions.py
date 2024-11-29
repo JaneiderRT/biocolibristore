@@ -1,7 +1,11 @@
 from django.conf import settings
 from django.core.mail import EmailMessage
+from django.utils import timezone
+from datetime import datetime
 
 from .models import Contacto
+
+FORMAT_DATE = "%d-%m-%Y %I:%M:%S"
 
 def __capture_data_email(request):
     nombres                  = request.POST['inputNombres']
@@ -20,10 +24,12 @@ def __capture_data_email(request):
 
 
 def __save_contact(name, last_name, email, message, subject):
+    date_created = datetime.strptime(timezone.now().strftime(FORMAT_DATE), FORMAT_DATE)
     Contacto(
         nombre_cliente=name,
         apellido_cliente=last_name,
         email_remitente=email,
         mensaje=message,
-        asunto=subject
+        asunto=subject,
+        fecha_creacion=date_created
     ).save()
