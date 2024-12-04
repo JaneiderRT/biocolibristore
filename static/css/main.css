@@ -61,6 +61,7 @@ html {
 /*--------------------------------------------*/
 .navbar {
     background-color: #ffffff;
+    margin-bottom: 20px;
 }
 
 .navbar-toggler {
@@ -139,9 +140,8 @@ html {
 }
 
 .card img {
-    width: 335px;
-    height: 250px;
     margin: auto;
+    aspect-ratio: 694/550;
     padding: 10px 10px;
 }
 
@@ -191,6 +191,8 @@ html {
 /*                Pie De Pagina               */
 /*--------------------------------------------*/
 footer {
+    margin-block: 20px;
+    padding-block: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

@@ -1,0 +1,50 @@
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    margin-block: 20px;
+    filter: drop-shadow(5px 8px 5px rgba(0, 0, 0, 0.5));
+}
+
+.card-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.card-text {
+    font-size: 22px;
+    padding: 0px 15px;
+}
+
+.card-subtitle {
+    font-family: Kalam_Bold;
+    font-size: 25px;
+    color: #e67e22;
+    margin-bottom: 25px;
+    opacity: 0.7;
+}
+
+.card-body .btn {
+    font-size: 20px;
+    border: none;
+}
+
+@media (min-width: 720px) {
+    .card {
+        max-width: 70%;
+    }
+
+    .card img {
+        max-width: 65%;
+    }
+}
+  

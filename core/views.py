@@ -85,3 +85,10 @@ def contact(request):
             })
     
     return render(request, 'contact.html')
+
+
+def product_view(request, id):
+    product = Producto.objects.get(cod_producto=id)
+    return render(request, 'product_view.html', {
+        'product':product
+    })
