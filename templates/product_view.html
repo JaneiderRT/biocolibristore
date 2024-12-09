@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/product_view.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="container">
+    <div class="card">
+        <img src="{{ product.imagen.url }}" alt="{{ product.cod_producto }}" class="card-img-top">
+        <div class="card-body">
+          <h1 class="card-title">{{product.nombre}}</h1>
+          <p class="card-text">
+            {{ product.descripcion }}
+          </p>
+          <h3 class="card-subtitle">
+            {{ product.precio }}
+          </h3>
+          <a href="#" class="btn btn-primary">Añadir al carrito</a>
+        </div>
+      </div>
+</main>
+{% endblock %}
