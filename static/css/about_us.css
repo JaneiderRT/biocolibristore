@@ -1,0 +1,81 @@
+@font-face {
+    font-family: Fredoka_One;
+    src: url('../fonts/Fredoka_One/FredokaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: Arial_Rounded_Bold;
+    src: url('../fonts/Arial_Rounded_Bold/ARLRDBD.TTF');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+section {
+    display: grid;
+    grid-template-columns: auto 70%;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+article {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+#desc-about {
+    background-color: #0c8E4E;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 25px 50px 25px 25px;
+
+    h1, h4 {
+        margin-bottom: 15px;
+        font-family: Fredoka_One;
+    }
+
+    h1 {
+        font-size: 32px;
+        color: #82BE58;
+    }
+
+    h4 {
+        font-size: 22px;
+        color: #C5D65F;
+    }
+
+    p {
+        font-size: 17px;
+        color: #F5F5F5;
+        font-family: Arial_Rounded_Bold;
+    }
+}
+
+@media (max-width: 720px) {
+    section {
+        grid-template-columns: auto;
+    }
+
+    #img {
+        margin: 15px 0px;
+    }
+
+    #desc-about {
+        min-height: 100%;
+        border-radius: 0px;
+    }
+}
