@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIO COLIBRI STORE | HOME</title>
+    <title>HOME | BIOCOLIBRISTORE</title>
     <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     {% block css %}
@@ -40,10 +40,10 @@
                         <a class="nav-link" aria-current="page" href="/#Products">Productos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Quiénes Somos</a>
+                        <a class="nav-link" href="{% url 'about_us' %}">Quiénes Somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contact/">Contáctanos</a>
+                        <a class="nav-link" href="{% url 'contact' %}">Contáctanos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Fundador</a>

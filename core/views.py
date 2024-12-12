@@ -92,3 +92,7 @@ def product_view(request, id):
     return render(request, 'product_view.html', {
         'product':product
     })
+
+
+def about_us(request):
+    return render(request, 'about_us.html')
