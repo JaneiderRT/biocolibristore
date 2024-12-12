@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 
 from .models import Producto
-from .funtions import __capture_data_email, __save_contact
+from .funtions import capture_data_email, save_contact
 
 # Create your views here.
 def index(request):
@@ -67,7 +67,7 @@ def singout(request):
 
 def contact(request):
     if request.method == 'POST':
-        name, last_name, email, message, subject, correo = __capture_data_email(request)
+        name, last_name, email, message, subject, correo = capture_data_email(request)
         try:
             envio = correo.send(fail_silently=False)
             if envio == 0:
@@ -75,7 +75,7 @@ def contact(request):
                     'error':'¡Ups! No se puedo enviar el correo.'
                 })
             else:
-                __save_contact(name, last_name, email, message, subject)
+                save_contact(name, last_name, email, message, subject)
                 return render(request, 'contact.html', {
                     'mensaje':'¡El mensaje se ha enviado satisfactoriamente!'
                 })
