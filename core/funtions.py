@@ -7,7 +7,7 @@ from .models import Contacto
 
 FORMAT_DATE = "%d-%m-%Y %I:%M:%S"
 
-def __capture_data_email(request):
+def capture_data_email(request):
     nombres                  = request.POST['inputNombres']
     apellidos                = request.POST['inputApellidos']
     email_client             = request.POST['inputEmailFrom']
@@ -23,7 +23,7 @@ def __capture_data_email(request):
     return nombres, apellidos, email_client, mensaje, asunto, correo
 
 
-def __save_contact(name, last_name, email, message, subject):
+def save_contact(name, last_name, email, message, subject):
     date_created = datetime.strptime(timezone.now().strftime(FORMAT_DATE), FORMAT_DATE)
     Contacto(
         nombre_cliente=name,
