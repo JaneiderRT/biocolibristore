@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Metodos_Pago(models.Model):
@@ -31,7 +32,7 @@ class Ref_Tipo_Documento(models.Model):
     descripcion        = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.descripcion
+        return f'{self.cod_tipo_documento} - {self.descripcion}'
 
     class Meta:
         verbose_name_plural = 'Tipo De Documentos'
@@ -43,7 +44,7 @@ class Ref_Tipo_Persona(models.Model):
     descripcion      = models.CharField(max_length=16)
 
     def __str__(self):
-        return self.descripcion
+        return f'{self.cod_tipo_persona} - {self.descripcion}'
 
     class Meta:
         verbose_name_plural = 'Tipo De Personas'
@@ -52,13 +53,14 @@ class Ref_Tipo_Persona(models.Model):
 class Administrador(models.Model):
     dni             = models.IntegerField(primary_key=True)
     id_tipo_dni     = models.ForeignKey(Ref_Tipo_Documento, on_delete=models.CASCADE, related_name='adm_documento')
-    nombres         = models.CharField(max_length=30)
-    apellidos       = models.CharField(max_length=30)
+    nombres         = models.CharField(max_length=100, blank=True)
+    apellidos       = models.CharField(max_length=100, blank=True)
     genero          = models.CharField(max_length=1)
     email           = models.EmailField()
     contacto        = models.CharField(max_length=10)
     domicilio       = models.CharField(max_length=100, blank=True, null=True)
     id_tipo_persona = models.ForeignKey(Ref_Tipo_Persona, on_delete=models.CASCADE, related_name='adm_persona')
+    usuario         = models.OneToOneField(User, on_delete=models.CASCADE, default='')
 
     def __str__(self):
         return f'{self.nombres} {self.apellidos}'
@@ -70,14 +72,15 @@ class Administrador(models.Model):
 class Cliente(models.Model):
     dni             = models.IntegerField(primary_key=True)
     id_tipo_dni     = models.ForeignKey(Ref_Tipo_Documento, on_delete=models.CASCADE, related_name='cli_documento')
-    nombres         = models.CharField(max_length=30)
-    apellidos       = models.CharField(max_length=30)
+    nombres         = models.CharField(max_length=100, blank=True)
+    apellidos       = models.CharField(max_length=100, blank=True)
     genero          = models.CharField(max_length=1)
     email           = models.EmailField()
     contacto        = models.CharField(max_length=10)
     domicilio       = models.CharField(max_length=100)
     id_tipo_persona = models.ForeignKey(Ref_Tipo_Persona, on_delete=models.CASCADE, related_name='cli_persona')
     num_cuenta      = models.CharField(max_length=20)
+    usuario         = models.OneToOneField(User, on_delete=models.CASCADE, default='')
 
     def __str__(self):
         return f'{self.nombres} {self.apellidos}'
