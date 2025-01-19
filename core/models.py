@@ -50,20 +50,32 @@ class Ref_Tipo_Persona(models.Model):
         verbose_name_plural = 'Tipo De Personas'
 
 
+class Genero(models.Model):
+    cod_genero  = models.BigAutoField(auto_created=True, primary_key=True)
+    abreviacion = models.CharField(max_length=1)
+    descripcion = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f'{self.cod_genero} - {self.descripcion}'
+    
+    class Meta:
+        verbose_name_plural = 'Generos'
+
+
 class Administrador(models.Model):
     dni             = models.IntegerField(primary_key=True)
     id_tipo_dni     = models.ForeignKey(Ref_Tipo_Documento, on_delete=models.CASCADE, related_name='adm_documento')
     nombres         = models.CharField(max_length=100, blank=True)
     apellidos       = models.CharField(max_length=100, blank=True)
-    genero          = models.CharField(max_length=1)
-    email           = models.EmailField()
+    genero          = models.ForeignKey(Genero, on_delete=models.CASCADE, related_name='adm_genero')
+    email           = models.EmailField(blank=True)
     contacto        = models.CharField(max_length=10)
     domicilio       = models.CharField(max_length=100, blank=True, null=True)
     id_tipo_persona = models.ForeignKey(Ref_Tipo_Persona, on_delete=models.CASCADE, related_name='adm_persona')
     usuario         = models.OneToOneField(User, on_delete=models.CASCADE, default='')
 
     def __str__(self):
-        return f'{self.nombres} {self.apellidos}'
+        return f'{self.dni} - {self.nombres} {self.apellidos}'
 
     class Meta:
         verbose_name_plural = 'Administrador'
@@ -74,16 +86,16 @@ class Cliente(models.Model):
     id_tipo_dni     = models.ForeignKey(Ref_Tipo_Documento, on_delete=models.CASCADE, related_name='cli_documento')
     nombres         = models.CharField(max_length=100, blank=True)
     apellidos       = models.CharField(max_length=100, blank=True)
-    genero          = models.CharField(max_length=1)
-    email           = models.EmailField()
+    genero          = models.ForeignKey(Genero, on_delete=models.CASCADE, related_name='cli_genero')
+    email           = models.EmailField(blank=True)
     contacto        = models.CharField(max_length=10)
     domicilio       = models.CharField(max_length=100)
     id_tipo_persona = models.ForeignKey(Ref_Tipo_Persona, on_delete=models.CASCADE, related_name='cli_persona')
-    num_cuenta      = models.CharField(max_length=20)
+    num_cuenta      = models.CharField(max_length=20, null=True, blank=True)
     usuario         = models.OneToOneField(User, on_delete=models.CASCADE, default='')
 
     def __str__(self):
-        return f'{self.nombres} {self.apellidos}'
+        return f'{self.dni} - {self.nombres} {self.apellidos}'
 
 
 class Asosciado(models.Model):

@@ -8,9 +8,20 @@
     <div class="container-fluid">
         <form class="form-singup shadow" method="post">
             {% csrf_token %}
-            <!--<img src="{% static '' %}">-->
             <h1>Crear Cuenta</h1>
             <p class="singup-message">{{error}}</p>
+            <div>
+                <label for="id_first_name" class="form-label">Nombres</label>
+                <input type="text" name="first_name" class="form-control" required id="id_first_name">
+            </div>
+            <div>
+                <label for="id_last_name" class="form-label">Apellidos</label>
+                <input type="text" name="last_name" class="form-control" required id="id_last_name">
+            </div>
+            <div>
+                <label for="id_email" class="form-label">Correo Electrónico</label>
+                <input type="email" name="email" class="form-control" required id="id_email">
+            </div>
             <div>
                 <label for="id_username" class="form-label">Nombre de usuario</label>
                 <input type="text" name="username" maxlength="150" class="form-control" autofocus required
