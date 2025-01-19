@@ -38,9 +38,12 @@ def singin(request):
 
 def singup(request):
     if request.method == 'POST':
-        username  = request.POST['username']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
+        first_name = request.POST['first_name']
+        last_name  = request.POST['last_name']
+        email      = request.POST['email']
+        username   = request.POST['username']
+        password1  = request.POST['password1']
+        password2  = request.POST['password2']
 
         if password1 != password2:
             return render(request, 'singup.html', {
@@ -49,6 +52,9 @@ def singup(request):
         else:
             try:
                 user = User.objects.create_user(username=username, password=password1)
+                user.first_name = first_name
+                user.last_name  = last_name
+                user.email      = email
                 user.save()
                 login(request, user)
                 return redirect('index')
