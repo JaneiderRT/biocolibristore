@@ -89,7 +89,7 @@ html {
 }
 
 .navbar-nav li a:hover {
-    color: #82BE58; /*a5be00*/
+    color: #82BE58;
     cursor: pointer;
 }
 
