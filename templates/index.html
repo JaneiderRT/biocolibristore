@@ -56,7 +56,7 @@
                             <br>
                             ${{producto.precio}}
                         </p>
-                        <a class="btn" href="#">
+                        <a class="btn" href="{% url 'add_to_cart' producto.cod_producto %}">
                             <i class="bi bi-bag-plus"></i>
                         </a>
                         <a class="btn" href="{% url 'product_view' producto.cod_producto %}">
