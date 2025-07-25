@@ -7,7 +7,8 @@ from .ShoppingCart import ShoppingCart
 # Create your views here.
 def cart_view(request):
     cart = ShoppingCart(request)
-    return JsonResponse(cart.shopping_cart, safe=False)
+    total_price = cart.get_total_price() if cart.shopping_cart else 0
+    return render(request, 'cart/cart.html', {'cart': cart.shopping_cart, 'total_price': total_price})
 
 
 def add_to_cart(request, product_id):

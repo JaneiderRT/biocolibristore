@@ -16,7 +16,7 @@
           <h3 class="card-subtitle">
             {{ product.precio }}
           </h3>
-          <a href="#" class="btn btn-primary">Añadir al carrito</a>
+          <a href="{% url 'add_to_cart' product.cod_producto %}" class="btn btn-primary">Añadir al carrito</a>
         </div>
       </div>
 </main>

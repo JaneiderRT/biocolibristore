@@ -62,8 +62,8 @@ class ShoppingCart:
 
     def get_total_price(self):
         total = 0
-        for price in self.shopping_cart.items():
-            total += price['precio']
+        for key, value in self.shopping_cart.items():
+            total += value['precio']
         return total
 
 
