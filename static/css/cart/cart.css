@@ -1,0 +1,136 @@
+@font-face {
+    font-family: Fredoka_One;
+    src: url('../fonts/Fredoka_One/FredokaOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: Arial_Rounded_Bold;
+    src: url('../fonts/Arial_Rounded_Bold/ARLRDBD.TTF');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+main {
+    background-color: blueviolet;
+    min-height: 100vh;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 15px;
+}
+
+#btn-back {
+    background-color: brown;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+}
+
+section {
+    background-color: burlywood;
+    display: grid;
+    grid-template-areas: 
+        "title title"
+        "article aside";
+    grid-template-columns: 1fr 250px;
+}
+
+h1 {
+    grid-area: title;
+    background-color: chartreuse;
+    font-family: Fredoka_One;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+article{
+    grid-area: article;
+    background-color: bisque;
+    
+}
+
+table {
+    background-color: cadetblue;
+    padding: 10px 20px;
+    border-collapse: collapse;
+}
+
+/* thead {
+    background-color: coral;
+} */
+
+.table-row {
+    font-family: Fredoka_One;
+    /* border: 2px solid black; */
+}
+
+#table-header {
+    font-size: 20px;
+    color: white;
+}
+
+.table-titles {
+    padding: 5px 15px;
+}
+
+/* tbody {
+    background-color: firebrick;
+} */
+
+.table-items {
+    font-size: 17px;
+    padding: 10px 10px;
+}
+
+.items-center {
+    text-align: center;
+}
+
+/* #name-product {
+    font-weight: bold;
+} */
+
+#actions-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.btn-action {
+    border: 1px solid black;
+    color: black;
+    padding: 2px 0px;
+    border-radius: 5px;
+}
+
+.btn-action:hover {
+    cursor: pointer;
+    color: white;
+}
+
+#btn-color-blue:hover {
+    border-color: blue;
+    background-color: blue;
+}
+
+#btn-color-orange:hover {
+    border-color: darkorange;
+    background-color: darkorange;
+}
+
+#btn-color-red:hover {
+    border-color: red;
+    background-color: red;
+}
+
+aside {
+    grid-area: aside;
+}
