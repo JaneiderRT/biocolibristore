@@ -1,11 +1,11 @@
 @font-face {
     font-family: Fredoka_One;
-    src: url('../fonts/Fredoka_One/FredokaOne-Regular.ttf');
+    src: url('../../fonts/Fredoka_One/FredokaOne-Regular.ttf');
 }
 
 @font-face {
     font-family: Arial_Rounded_Bold;
-    src: url('../fonts/Arial_Rounded_Bold/ARLRDBD.TTF');
+    src: url('../../fonts/Arial_Rounded_Bold/ARLRDBD.TTF');
 }
 
 * {
@@ -13,10 +13,11 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    list-style: none;
 }
 
 main {
-    background-color: blueviolet;
+    background-color: #ffffff;
     min-height: 100vh;
     padding: 20px 15px;
     display: flex;
@@ -26,77 +27,64 @@ main {
 }
 
 #btn-back {
-    background-color: brown;
+    background-color: #0c8E4E;
     padding: 5px 10px;
     color: white;
     border-radius: 5px;
+    font-family: Arial_Rounded_Bold;
+    font-size: 17px;
+}
+
+#btn-back:hover {
+    background-color: #82BE58;
 }
 
 section {
-    background-color: burlywood;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
         "title title"
         "article aside";
-    grid-template-columns: 1fr 250px;
+    grid-template-columns: 1fr 300px;
 }
 
 h1 {
     grid-area: title;
-    background-color: chartreuse;
-    font-family: Fredoka_One;
-    font-size: 35px;
-    color: white;
+    font-family: Arial_Rounded_Bold;
+    font-size: 28px;
+    color: #353535;
     text-align: center;
     padding: 10px 0px;
 }
 
 article{
     grid-area: article;
-    background-color: bisque;
-    
 }
 
 table {
-    background-color: cadetblue;
     padding: 10px 20px;
     border-collapse: collapse;
 }
 
-/* thead {
-    background-color: coral;
-} */
-
-.table-row {
-    font-family: Fredoka_One;
-    /* border: 2px solid black; */
-}
-
 #table-header {
     font-size: 20px;
-    color: white;
 }
 
 .table-titles {
+    font-family: Arial_Rounded_Bold;
     padding: 5px 15px;
+    color: #0c8E4E;
 }
 
-/* tbody {
-    background-color: firebrick;
-} */
-
 .table-items {
+    font-family: Fredoka_One;
     font-size: 17px;
     padding: 10px 10px;
+    color: #353535;
 }
 
 .items-center {
     text-align: center;
 }
-
-/* #name-product {
-    font-weight: bold;
-} */
 
 #actions-container {
     display: flex;
@@ -105,32 +93,85 @@ table {
 }
 
 .btn-action {
-    border: 1px solid black;
-    color: black;
-    padding: 2px 0px;
+    border: 1px solid #999999;
+    color: #999999;
     border-radius: 5px;
 }
 
 .btn-action:hover {
     cursor: pointer;
-    color: white;
 }
 
 #btn-color-blue:hover {
-    border-color: blue;
-    background-color: blue;
+    border-color: #0c8E4E;
+    color: #0c8E4E;
 }
 
 #btn-color-orange:hover {
     border-color: darkorange;
-    background-color: darkorange;
+    color: darkorange;
 }
 
 #btn-color-red:hover {
     border-color: red;
-    background-color: red;
+    color: red;
 }
 
 aside {
     grid-area: aside;
+    display: grid;
+    grid-template-areas:
+        "aside-title"
+        "aside-content"
+        "aside-total"
+        "aside-btn";
+    grid-template-rows: 35px 1fr 50px 50px;
+}
+
+#aside-title {
+    grid-area: aside-title;
+    font-family: Arial_Rounded_Bold;
+    color: #0c8E4E;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#aside-content {
+    grid-area: aside-content;
+    font-family: Fredoka_One;
+    color: #353535;
+}
+
+#aside-item {
+    margin: 0px 12px;
+}
+
+#aside-item li {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.637);
+}
+
+#aside-total {
+    grid-area: aside-total;
+    font-family: Arial_Rounded_Bold;
+    font-size: 20px;
+    color: #0c8E4E;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+#aside-btn {
+    background-color: #0c8E4E;
+    grid-area: aside-btn;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial_Rounded_Bold;
+    font-size: 18px;
+    color: white;
 }

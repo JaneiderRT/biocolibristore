@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import JsonResponse
 
 from core.models import Producto
 from .ShoppingCart import ShoppingCart

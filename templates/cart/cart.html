@@ -62,8 +62,25 @@
                 </table>
             </article>
             <aside>
-                <h2>Total: {{ total_price }}</h2>
-                <a href="#" class="btn btn-primary">Proceder al Pago</a>
+                <h2 id="aside-title">Resumen</h2>
+                <div id="aside-content">
+                    <ul id="aside-item">
+                        <li>
+                            Subtotal
+                            <span>{{ total_price }}</span>
+                        </li>
+                        <li>
+                            Discount
+                            <span>0</span>
+                        </li>
+                        <li>
+                            Shipping
+                            <span>0</span>
+                        </li>
+                    </ul>
+                </div>
+                <h3 id="aside-total">Total: {{ total_price }}</h3>
+                <a id="aside-btn" href="#" class="btn">Proceder al Pago</a>
             </aside>
         </section>
         {% else %}

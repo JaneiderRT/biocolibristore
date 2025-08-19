@@ -30,11 +30,12 @@ class ShoppingCart:
                 'descripcion': product.descripcion,
                 'precio': product.precio,
                 'imagen': product.imagen.url,
-                'cantidad': 1
+                'cantidad': 1,
+                'precio_acumulado': product.precio * 1
             }
         else:
             self.shopping_cart[id_producto]['cantidad'] += 1
-            self.shopping_cart[id_producto]['precio'] = product.precio * self.shopping_cart[id_producto]['cantidad']
+            self.shopping_cart[id_producto]['precio_acumulado'] = product.precio * self.shopping_cart[id_producto]['cantidad']
 
         self.save_cart()
 
@@ -52,7 +53,7 @@ class ShoppingCart:
 
         if id_producto in self.shopping_cart.keys():
             self.shopping_cart[id_producto]['cantidad'] -= 1
-            self.shopping_cart[id_producto]['precio'] -= product.precio
+            self.shopping_cart[id_producto]['precio_acumulado'] -= product.precio
 
             if self.shopping_cart[id_producto]['cantidad'] <= 0:
                 self.remove_product(product)
@@ -63,7 +64,10 @@ class ShoppingCart:
     def get_total_price(self):
         total = 0
         for key, value in self.shopping_cart.items():
-            total += value['precio']
+            if value['cantidad'] > 1:
+                total += value['precio_acumulado']
+            else:
+                total += value['precio']
         return total
 
 
